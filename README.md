@@ -32,6 +32,15 @@ curl -F "file=@photo.png" http://localhost:8080/api/upload
 
 The returned URL works for the configured lifetime (`MAX_AGE`, default `1h`), then the file is deleted.
 
+### Alternative: run with Docker Compose
+
+```bash
+cp .env.example .env   # set your IMG_HOST_BASE_URL, port, TTL, etc.
+docker compose up -d --build
+```
+
+This builds `img-host/`, tags it as `ghcr.io/<namespace>/teams-images:latest`, and stores files on the named `img-data` volume. Every server setting can be overridden via `.env` — see `.env.example` for the available `IMG_HOST_*` variables.
+
 ## Paste an image from the clipboard
 
 With the server running, set its base URL and upload whatever is on your clipboard:

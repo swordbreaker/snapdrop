@@ -1,0 +1,20 @@
+name: snapdrop
+
+services:
+  img-host:
+    image: ghcr.io/swordbreaker/snapdrop:latest
+    restart: unless-stopped
+    ports:
+      - "${IMG_HOST_PORT:-8080}:8080"
+    environment:
+      - LISTEN_ADDR=0.0.0.0:8080
+      - STORAGE_DIR=/data
+      - BASE_URL=${IMG_HOST_BASE_URL:-}
+      - MAX_AGE=${IMG_HOST_MAX_AGE:-1h}
+      - MAX_FILE_SIZE=${IMG_HOST_MAX_FILE_SIZE:-500MB}
+      - MAX_TOTAL_SIZE=${IMG_HOST_MAX_TOTAL_SIZE:-0}
+    volumes:
+      - img-data:/data
+
+volumes:
+  img-data:
