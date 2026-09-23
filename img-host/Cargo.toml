@@ -1,0 +1,19 @@
+[package]
+name = "img-host"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+
+[dependencies]
+axum = { version = "0.8", default-features = false, features = ["http1", "tokio", "multipart", "json", "query"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "signal", "fs", "time", "io-util"] }
+uuid = { version = "1", features = ["v4"] }
+parse_duration = "2"
+serde = { version = "1", features = ["derive"] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

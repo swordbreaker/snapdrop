@@ -1,0 +1,7 @@
+target/
+img-cache/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
