@@ -1,4 +1,4 @@
-# teams-images
+# snapdrop
 
 Self-hosted, throwaway image hosting. A tiny Rust service that stores an uploaded image and serves it at a URL for a short time (default one hour), then deletes it. Includes a clipboard helper for quick screenshots.
 
